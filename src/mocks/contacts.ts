@@ -1,0 +1,130 @@
+import { Contact } from '../contexts/ContactContext';
+
+export const contacts: Contact[] = [
+  {
+    id: '1',
+    name: 'Alessandro',
+    phones: [
+      {
+        id: '1',
+        type: 'Celular',
+        number: '022999999999',
+      },
+      {
+        id: '2',
+        type: 'Casa',
+        number: '02225252525',
+      },
+    ],
+    email: 'alessandro@email.com.br',
+    addresses: [
+      {
+        id: '1',
+        type: 'Principal',
+        cep: '28625-010',
+        street: 'Avenida Dr. Galdino do Valle Filho',
+        number: '105',
+        complement: 'Bloco C - Apto. 301',
+        city: 'Nova Friburgo',
+        state: 'Rio de Janeiro',
+        country: 'Brasil',
+      },
+      {
+        id: '2',
+        type: 'Secundário',
+        cep: '28625-010',
+        street: 'Avenida Dr. Galdino do Valle Filho',
+        number: '105',
+        complement: 'Bloco C - Apto. 301',
+        city: 'Nova Friburgo',
+        state: 'Rio de Janeiro',
+        country: 'Brasil',
+      },
+      {
+        id: '3',
+        type: 'Secundário',
+        cep: '28625-010',
+        street: 'Avenida Dr. Galdino do Valle Filho',
+        number: '105',
+        complement: 'Bloco C - Apto. 301',
+        city: 'Nova Friburgo',
+        state: 'Rio de Janeiro',
+        country: 'Brasil',
+      },
+      {
+        id: '4',
+        type: 'Secundário',
+        cep: '28625-010',
+        street: 'Avenida Dr. Galdino do Valle Filho',
+        number: '105',
+        complement: 'Bloco C - Apto. 301',
+        city: 'Nova Friburgo',
+        state: 'Rio de Janeiro',
+        country: 'Brasil',
+      },
+    ],
+    group: 'Amigos',
+  },
+  {
+    id: '2',
+    name: 'Alexandre',
+    phones: [
+      {
+        id: '1',
+        type: 'Celular',
+        number: '022999999999',
+      },
+      {
+        id: '2',
+        type: 'Casa',
+        number: '02225252525',
+      },
+    ],
+    email: 'alessandro@email.com.br',
+    addresses: [
+      {
+        id: '1',
+        type: 'Principal',
+        cep: '28625-010',
+        street: 'Avenida Dr. Galdino do Valle Filho',
+        number: '105',
+        complement: 'Bloco C - Apto. 301',
+        city: 'Nova Friburgo',
+        state: 'Rio de Janeiro',
+        country: 'Brasil',
+      },
+    ],
+    group: 'Amigos',
+  },
+  {
+    id: '2',
+    name: 'Ananias',
+    phones: [
+      {
+        id: '1',
+        type: 'Celular',
+        number: '022999999999',
+      },
+      {
+        id: '2',
+        type: 'Casa',
+        number: '02225252525',
+      },
+    ],
+    email: 'alessandro@email.com.br',
+    addresses: [
+      {
+        id: '1',
+        type: 'Principal',
+        cep: '28625-010',
+        street: 'Avenida Dr. Galdino do Valle Filho',
+        number: '105',
+        complement: 'Bloco C - Apto. 301',
+        city: 'Nova Friburgo',
+        state: 'Rio de Janeiro',
+        country: 'Brasil',
+      },
+    ],
+    group: 'Amigos',
+  },
+];

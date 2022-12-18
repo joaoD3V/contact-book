@@ -1,22 +1,8 @@
 import { Pad } from './Pad';
 import * as S from './styles';
+import { contacts } from '../../mocks/contacts';
 
-const contacts = [
-  {
-    id: '1',
-    name: 'Alessandro',
-  },
-  {
-    id: '2',
-    name: 'Alexandre',
-  },
-  {
-    id: '2',
-    name: 'Ananias',
-  },
-];
-
-export function Contact() {
+export function ContactList() {
   return (
     <S.Wrapper>
       <Pad initalLetter="A" contacts={contacts} />

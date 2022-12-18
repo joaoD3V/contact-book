@@ -18,16 +18,23 @@ export const Header = styled.header`
     div {
       display: flex;
       gap: ${theme.spacings.sm};
+    }
 
-      button {
-        background-color: transparent;
-        color: ${theme.colors.gray[100]};
-        transition: ${theme.transition.fast};
+    button {
+      background-color: transparent;
+      color: ${theme.colors.gray[100]};
+      transition: ${theme.transition.fast};
 
-        &:hover {
-          filter: brightness(0.8);
-        }
+      &:hover {
+        filter: brightness(0.8);
       }
     }
   `}
+`;
+
+export const HeaderContact = styled.div`
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 `;
