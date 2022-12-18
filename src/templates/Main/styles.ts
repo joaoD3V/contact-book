@@ -12,6 +12,7 @@ export const Main = styled.main`
     padding: 18px;
     overflow: hidden;
     max-height: 900px;
+    position: relative;
 
     ${media.lessThan('huge')`
       margin: 0 auto;

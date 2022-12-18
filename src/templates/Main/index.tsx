@@ -1,3 +1,5 @@
+import { Navigation } from '../../components/Navigation';
+import { useContact } from '../../contexts/ContactContext';
 import * as S from './styles';
 
 type MainProps = {
@@ -5,5 +7,12 @@ type MainProps = {
 };
 
 export function Main({ children }: MainProps) {
-  return <S.Main>{children}</S.Main>;
+  const { view } = useContact();
+
+  return (
+    <S.Main>
+      {children}
+      {view !== 'initial' && <Navigation />}
+    </S.Main>
+  );
 }

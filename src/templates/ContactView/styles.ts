@@ -5,6 +5,7 @@ export const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   width: 100%;
+  position: relative;
 `;
 
 export const Content = styled.div`
@@ -82,6 +83,7 @@ export const AddressesList = styled.div`
     ${media.lessThan('huge')`
       height: 200px;
       max-height: 200px;
+      margin-top: ${theme.spacings['xl']};
     `}
 
     overflow-y: scroll;
