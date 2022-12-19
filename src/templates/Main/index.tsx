@@ -12,7 +12,7 @@ export function Main({ children }: MainProps) {
   return (
     <S.Main>
       {children}
-      {view !== 'initial' && <Navigation />}
+      {view === 'contact' && <Navigation />}
     </S.Main>
   );
 }

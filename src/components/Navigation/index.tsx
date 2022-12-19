@@ -33,7 +33,7 @@ export function Navigation() {
             <p>Cancelar</p>
           </button>
 
-          <button type="button">
+          <button type="submit">
             <p>Salvar</p>
           </button>
         </>
