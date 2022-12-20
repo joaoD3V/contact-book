@@ -7,3 +7,5 @@ export const typePhones = [
   'Pager',
   'Outros',
 ];
+
+export const typeAddresses = ['Principal', 'Secundário', 'Trabalho', 'Outros'];

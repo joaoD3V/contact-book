@@ -13,10 +13,14 @@ import { Contact } from '../../contexts/ContactContext';
 import { SubmitHandler, useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { Navigation } from '../../components/Navigation';
+import { useModal } from '../../contexts/ModalContext';
+import { AddPhoneModal } from '../../components/Modal/AddPhoneModal';
 import * as yup from 'yup';
 import * as S from './styles';
-import { TypePhoneModal } from '../../components/Modal/TypePhoneModal';
-import { useModal } from '../../contexts/ModalContext';
+import { typeAddresses, typePhones } from '../../mocks/types';
+import { TypePhoneModal } from '../../components/Modal/TypeModal/TypePhoneModal';
+import { TypeAddressModal } from '../../components/Modal/TypeModal/TypeAddressModal';
+import { AddAddressModal } from '../../components/Modal/AddAddressModal';
 
 type ContactEditingProps = {
   contact: Contact;
@@ -25,6 +29,7 @@ type ContactEditingProps = {
 type ContactFormData = {
   name: string;
   phones: string[];
+  email: string;
 };
 
 const ContactFormSchema = yup.object().shape({
@@ -37,7 +42,12 @@ export function ContactEditing({ contact }: ContactEditingProps) {
   });
   const { errors } = formState;
 
-  const { handleToggleTypePhoneModal } = useModal();
+  const {
+    handleToggleTypePhoneModal,
+    handleToggleAddPhoneModal,
+    handleToggleTypeAddressModal,
+    handleToggleAddAddressModal,
+  } = useModal();
 
   const handleSaveUpdate: SubmitHandler<ContactFormData> = async (values) => {
     console.log(values);
@@ -89,7 +99,11 @@ export function ContactEditing({ contact }: ContactEditingProps) {
                 </S.Group>
               </S.Info>
 
-              <S.AddNewField>
+              <S.AddNewField
+                type="button"
+                title="Adicionar novo número"
+                onClick={handleToggleAddPhoneModal}
+              >
                 <span>
                   <Plus width="22px" height="22px" />
                   Adicionar número de telefone
@@ -102,6 +116,7 @@ export function ContactEditing({ contact }: ContactEditingProps) {
               type="email"
               placeholder="E-mail"
               icon={<EnvelopeSimple width="28px" height="28px" />}
+              {...register('email')}
             />
 
             <S.FieldsGroup>
@@ -110,7 +125,11 @@ export function ContactEditing({ contact }: ContactEditingProps) {
                 <S.Group>
                   {contact.addresses.map((address) => (
                     <S.Field key={address.id}>
-                      <S.CategoryButton>
+                      <S.CategoryButton
+                        type="button"
+                        title="Alterar endereço"
+                        onClick={handleToggleTypeAddressModal}
+                      >
                         {address.type} <CaretRight width="18px" height="18px" />
                       </S.CategoryButton>
                       <S.AddressButton>{address.street}</S.AddressButton>
@@ -128,10 +147,14 @@ export function ContactEditing({ contact }: ContactEditingProps) {
                 </S.Group>
               </S.Info>
 
-              <S.AddNewField>
+              <S.AddNewField
+                type="button"
+                title="Adicionar novo número"
+                onClick={handleToggleAddAddressModal}
+              >
                 <span>
                   <Plus width="22px" height="22px" />
-                  Adicionar endereço
+                  Adicionar novo endereço
                 </span>
               </S.AddNewField>
             </S.FieldsGroup>
@@ -145,7 +168,13 @@ export function ContactEditing({ contact }: ContactEditingProps) {
         <Navigation />
       </S.FormWrapper>
 
-      <TypePhoneModal />
+      <TypePhoneModal values={typePhones} defaultValue={typePhones[0]} />
+      <AddPhoneModal />
+      <TypeAddressModal
+        values={typeAddresses}
+        defaultValue={typeAddresses[2]}
+      />
+      <AddAddressModal />
     </>
   );
 }

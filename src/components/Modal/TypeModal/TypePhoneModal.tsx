@@ -1,12 +1,16 @@
 import { useState } from 'react';
 import { Modal } from '..';
 import { useModal } from '../../../contexts/ModalContext';
-import { typePhones } from '../../../mocks/typePhone';
 import { Radio } from '../../Form/Radio';
 import * as S from './styles';
 
-export function TypePhoneModal() {
-  const [typePhone, setTypePhone] = useState(typePhones[0]);
+export type TypeModalProps = {
+  defaultValue: string;
+  values: string[];
+};
+
+export function TypePhoneModal({ defaultValue, values }: TypeModalProps) {
+  const [selectTypePhone, setSelectTypePhone] = useState(defaultValue);
 
   const { isTypePhoneModalOpen, handleToggleTypePhoneModal } = useModal();
 
@@ -17,14 +21,17 @@ export function TypePhoneModal() {
       title="Tipo de telefone"
     >
       <S.Wrapper>
-        {typePhones.map((type) => (
+        {values.map((type) => (
           <Radio
             key={type}
             name="type"
             id={type}
-            checked={typePhone === type}
+            checked={selectTypePhone === type}
             value={type}
-            onChange={(e) => setTypePhone(e.target.value)}
+            onChange={(e) => {
+              setSelectTypePhone(e.target.value);
+              handleToggleTypePhoneModal();
+            }}
           >
             {type}
           </Radio>

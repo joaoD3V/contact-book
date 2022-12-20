@@ -2,19 +2,33 @@ import styled, { css } from 'styled-components';
 
 type WrapperProps = {
   isInvalid: boolean;
+  bgColor: 'primary' | 'secondary';
 };
 
 export const Wrapper = styled.div<WrapperProps>`
-  ${({ theme, isInvalid }) => css`
+  ${({ theme, isInvalid, bgColor }) => css`
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     gap: 0.8rem;
 
+    label {
+      font-size: ${theme.font.sizes.small};
+      margin-bottom: 0.2rem;
+    }
+
+    span {
+      color: red;
+      font-weight: 300;
+    }
+
     div {
       width: 500px;
+      max-width: 100%;
       height: 44px;
-      background-color: ${theme.colors.gray[800]};
+      background-color: ${bgColor === 'secondary'
+        ? theme.colors.gray[800]
+        : theme.colors.gray[900]};
       border-radius: 0.8rem;
       display: flex;
       align-items: center;
