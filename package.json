@@ -3,6 +3,10 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
+  "author": {
+    "name": "João Pedro Silva",
+    "email": "joao.devweb@gmail.com"
+  },
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
@@ -10,7 +14,9 @@
     "lint": "eslint src --max-warnings=0",
     "typecheck": "tsc --project tsconfig.json --noEmit",
     "generate": "yarn plop --plopfile ./generators/plopfile.js",
-    "start:server": "json-server --delay 700 --watch ./src/mocks/db.json"
+    "start:server": "json-server --delay 700 --watch ./src/mocks/db.json",
+    "cy:open": "cypress open",
+    "cy:run": "cypress run"
   },
   "lint-staged": {
     "src/**/*": [
@@ -53,6 +59,7 @@
     "babel-jest": "^29.3.1",
     "babel-loader": "^9.1.0",
     "commitizen": "^4.2.6",
+    "cypress": "^12.2.0",
     "cz-conventional-changelog": "^3.3.0",
     "eslint": "^8.29.0",
     "eslint-config-prettier": "^8.5.0",
