@@ -24,6 +24,7 @@ import * as S from './styles';
 import { AddressModal } from '../../components/Modal/AddressModal';
 import { useState } from 'react';
 import { Select } from '../../components/Form/Select';
+import MediaMatch from '../../components/MediaMatch';
 
 type ContactEditingProps = {
   contact?: Contact;
@@ -108,19 +109,32 @@ export function ContactEditing({ contact }: ContactEditingProps) {
       <S.FormWrapper onSubmit={handleSubmit(handleSaveContact)}>
         <S.FormScrollView>
           <S.FormContent>
-            <Input
-              defaultValue={contact?.name}
-              type="text"
-              placeholder="Nome completo"
-              icon={<User width="28px" height="28px" />}
-              error={errors.name}
-              {...register('name')}
-            />
+            <MediaMatch greaterThan="large" style={{ width: '100%' }}>
+              <Input
+                defaultValue={contact?.name}
+                type="text"
+                placeholder="Nome completo"
+                icon={<User width="28px" height="28px" />}
+                error={errors.name}
+                {...register('name')}
+              />
+            </MediaMatch>
+            <MediaMatch lessThan="large" style={{ width: '100%' }}>
+              <Input
+                defaultValue={contact?.name}
+                type="text"
+                placeholder="Nome completo"
+                error={errors.name}
+                {...register('name')}
+              />
+            </MediaMatch>
 
             <S.FieldsGroup>
               {phones.length > 0 && (
                 <S.Info>
-                  <PhoneIcon width="28px" height="28px" />
+                  <MediaMatch greaterThan="large">
+                    <PhoneIcon width="28px" height="28px" />
+                  </MediaMatch>
                   <S.Group>
                     {phones.map((phone) => (
                       <S.Field key={phone.id}>
@@ -174,18 +188,31 @@ export function ContactEditing({ contact }: ContactEditingProps) {
               </S.AddNewField>
             </S.FieldsGroup>
 
-            <Input
-              defaultValue={contact?.email}
-              type="email"
-              placeholder="E-mail"
-              icon={<EnvelopeSimple width="28px" height="28px" />}
-              {...register('email')}
-            />
+            <MediaMatch greaterThan="large" style={{ width: '100%' }}>
+              <Input
+                defaultValue={contact?.email}
+                type="email"
+                placeholder="E-mail"
+                icon={<EnvelopeSimple width="28px" height="28px" />}
+                {...register('email')}
+              />
+            </MediaMatch>
+
+            <MediaMatch lessThan="large" style={{ width: '100%' }}>
+              <Input
+                defaultValue={contact?.email}
+                type="email"
+                placeholder="E-mail"
+                {...register('email')}
+              />
+            </MediaMatch>
 
             <S.FieldsGroup>
               {addresses.length > 0 && (
                 <S.Info>
-                  <House width="28px" height="28px" />
+                  <MediaMatch greaterThan="large">
+                    <House width="28px" height="28px" />
+                  </MediaMatch>
                   <S.Group>
                     {addresses.map((address) => (
                       <S.Field key={address.id}>
@@ -247,17 +274,29 @@ export function ContactEditing({ contact }: ContactEditingProps) {
               </S.AddNewField>
             </S.FieldsGroup>
 
-            <Select
-              {...register('group')}
-              icon={<Users width="28px" height="28px" />}
-              defaultValue={contact?.group}
-            >
-              {groups.map((group) => (
-                <option key={group} value={group}>
-                  {group}
-                </option>
-              ))}
-            </Select>
+            <MediaMatch greaterThan="large" style={{ width: '100%' }}>
+              <Select
+                {...register('group')}
+                icon={<Users width="28px" height="28px" />}
+                defaultValue={contact?.group}
+              >
+                {groups.map((group) => (
+                  <option key={group} value={group}>
+                    {group}
+                  </option>
+                ))}
+              </Select>
+            </MediaMatch>
+
+            <MediaMatch lessThan="large" style={{ width: '100%' }}>
+              <Select {...register('group')} defaultValue={contact?.group}>
+                {groups.map((group) => (
+                  <option key={group} value={group}>
+                    {group}
+                  </option>
+                ))}
+              </Select>
+            </MediaMatch>
           </S.FormContent>
         </S.FormScrollView>
         <Navigation />

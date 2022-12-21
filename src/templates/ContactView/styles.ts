@@ -86,6 +86,18 @@ export const AddressesList = styled.div`
       margin-top: ${theme.spacings['xl']};
     `}
 
+    ${media.lessThan('large')`
+        max-width: 90vw;
+        overflow-x: hidden;
+        height: 250px;
+        max-height: 250px;
+    `}
+
+    @media (max-width: 350px) {
+      height: 150px;
+      max-height: 150px;
+    }
+
     overflow-y: scroll;
 
     scrollbar-width: thin;

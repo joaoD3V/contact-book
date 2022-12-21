@@ -9,6 +9,7 @@ import { Input } from '../../Form/Input';
 import { v4 as uuid } from 'uuid';
 import * as yup from 'yup';
 import * as S from './styles';
+import MediaMatch from '../../MediaMatch';
 
 type AddAddressFormData = {
   type: string;
@@ -163,16 +164,31 @@ export function AddressModal({
         />
 
         <S.GroupFields>
-          <Input
-            defaultValue={defaultValue ? defaultValue.number : ''}
-            type="number"
-            label="Número"
-            placeholder="123"
-            error={errors.number!}
-            {...register('number')}
-            bgColor="primary"
-            style={{ width: '100px' }}
-          />
+          <MediaMatch greaterThan="large">
+            <Input
+              defaultValue={defaultValue ? defaultValue.number : ''}
+              type="number"
+              label="Número"
+              placeholder="123"
+              error={errors.number!}
+              {...register('number')}
+              bgColor="primary"
+              style={{ width: '100px' }}
+            />
+          </MediaMatch>
+
+          <MediaMatch lessThan="large">
+            <Input
+              defaultValue={defaultValue ? defaultValue.number : ''}
+              type="number"
+              label="Número"
+              placeholder="123"
+              error={errors.number!}
+              {...register('number')}
+              bgColor="primary"
+              style={{ width: '10px' }}
+            />
+          </MediaMatch>
 
           <Input
             defaultValue={defaultValue ? defaultValue.complement : ''}
@@ -185,18 +201,34 @@ export function AddressModal({
           />
         </S.GroupFields>
 
-        <S.GroupFields hasThreeElements>
-          <Input
-            defaultValue={defaultValue ? defaultValue.neighborhood : ''}
-            type="text"
-            label="Bairro"
-            placeholder="Centro"
-            error={errors.neighborhood!}
-            {...register('neighborhood')}
-            bgColor="primary"
-            readOnly
-            style={{ width: '150px' }}
-          />
+        <S.GroupFields>
+          <MediaMatch greaterThan="large">
+            <Input
+              defaultValue={defaultValue ? defaultValue.neighborhood : ''}
+              type="text"
+              label="Bairro"
+              placeholder="Centro"
+              error={errors.neighborhood!}
+              {...register('neighborhood')}
+              bgColor="primary"
+              readOnly
+              style={{ width: '150px' }}
+            />
+          </MediaMatch>
+
+          <MediaMatch lessThan="large">
+            <Input
+              defaultValue={defaultValue ? defaultValue.neighborhood : ''}
+              type="text"
+              label="Bairro"
+              placeholder="Centro"
+              error={errors.neighborhood!}
+              {...register('neighborhood')}
+              bgColor="primary"
+              readOnly
+              style={{ width: '80px' }}
+            />
+          </MediaMatch>
 
           <Input
             defaultValue={defaultValue ? defaultValue.city : ''}

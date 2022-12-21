@@ -1,26 +1,32 @@
 import styled, { css } from 'styled-components';
+import media from 'styled-media-query';
 
 export const Form = styled.form`
   ${({ theme }) => css`
     display: flex;
     flex-direction: column;
     gap: ${theme.spacings.sm};
+    width: 100%;
+    max-width: 100%;
   `}
 `;
 
 type GroupFieldsProps = {
   isFlex?: boolean;
   isJustifyContent?: boolean;
-  hasThreeElements?: boolean;
 };
 
 export const GroupFields = styled.div<GroupFieldsProps>`
-  ${({ theme, isFlex, hasThreeElements }) => css`
+  ${({ theme, isFlex }) => css`
     display: grid;
-    grid-template-columns: ${hasThreeElements
-      ? 'repeat(3, 1fr);'
-      : 'repeat(2, 1fr);'};
+    grid-template-columns: repeat(2, 1fr);
     gap: ${theme.spacings.xs};
+    max-width: 100%;
+    width: 100%;
+
+    ${media.lessThan('large')`
+      grid-template-columns: 1fr 1fr;
+    `}
 
     ${!!isFlex &&
     `

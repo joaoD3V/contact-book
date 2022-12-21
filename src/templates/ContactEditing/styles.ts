@@ -12,6 +12,14 @@ export const FormScrollView = styled.div`
       height: 530px;
     `}
 
+    ${media.lessThan('large')`
+      height: 630px;
+    `}
+
+    @media (max-width: 350px) {
+      height: 450px;
+    }
+
     overflow-y: auto;
 
     scrollbar-width: thin;
@@ -46,6 +54,10 @@ export const FormContent = styled.div`
     gap: ${theme.spacings.md};
     padding: 0 ${theme.spacings['5xl']} ${theme.spacings['2xl']}
       ${theme.spacings['5xl']};
+
+    ${media.lessThan('large')`
+      padding: 0 ;
+    `}
   `}
 `;
 
@@ -92,6 +104,10 @@ export const Field = styled.div`
       outline: 0;
       border: 0;
       color: ${theme.colors.gray[100]};
+
+      ${media.lessThan('large')`
+        font-size: ${theme.font.sizes.medium};
+      `}
     }
   `}
 `;
@@ -124,6 +140,10 @@ export const AddressButton = styled.button`
     border: 0;
     color: ${theme.colors.gray[100]};
     transition: filter ${theme.transition.fast};
+
+    ${media.lessThan('large')`
+        font-size: ${theme.font.sizes.medium};
+      `}
 
     &:hover {
       filter: brightness(0.8);

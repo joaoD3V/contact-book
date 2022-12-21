@@ -20,5 +20,10 @@ export const Main = styled.main`
       height: 100vh;
       overflow: hidden;
     `}
+
+    ${media.lessThan('large')`
+      width: 100vw;
+      border: 0;
+    `}
   `}
 `;

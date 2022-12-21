@@ -32,15 +32,14 @@ export function ContactList() {
   return (
     <S.Wrapper>
       {initialsLetter.map((initial) => (
-        <>
+        <div key={initial}>
           {handleFilterContacts(initial).length > 0 && (
             <Pad
-              key={initial}
               initalLetter={initial}
               contacts={handleFilterContacts(initial)}
             />
           )}
-        </>
+        </div>
       ))}
     </S.Wrapper>
   );

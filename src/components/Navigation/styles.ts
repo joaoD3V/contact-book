@@ -1,4 +1,5 @@
 import styled, { css } from 'styled-components';
+import media from 'styled-media-query';
 
 type WrapperProps = {
   isContactView: boolean;
@@ -15,6 +16,10 @@ export const Wrapper = styled.div<WrapperProps>`
     background-color: ${theme.colors.gray[800]};
     display: flex;
     align-items: center;
+
+    ${media.lessThan('large')`
+      height: 64px;
+    `}
 
     ${isContactView
       ? `
@@ -36,6 +41,10 @@ export const Wrapper = styled.div<WrapperProps>`
       gap: 0.4rem;
       transition: ${theme.transition.fast};
 
+      ${media.lessThan('large')`
+        gap: 0.2rem;
+      `}
+
       &:hover {
         filter: brightness(0.8);
       }
@@ -43,11 +52,19 @@ export const Wrapper = styled.div<WrapperProps>`
       span {
         font-size: ${theme.font.sizes.small};
         font-weight: 300;
+
+        ${media.lessThan('large')`
+          font-size: ${theme.font.sizes.xsmall};
+        `}
       }
 
       p {
         font-weight: 300;
         font-size: ${theme.font.sizes.xxlarge};
+
+        ${media.lessThan('large')`
+          font-size: ${theme.font.sizes.xlarge};
+        `}
       }
     }
   `}

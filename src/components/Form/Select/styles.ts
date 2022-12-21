@@ -1,4 +1,5 @@
 import styled, { css } from 'styled-components';
+import media from 'styled-media-query';
 
 type WrapperProps = {
   isInvalid: boolean;
@@ -36,6 +37,10 @@ export const Wrapprer = styled.div<WrapperProps>`
       border-radius: 0.8rem;
       border: ${isSmall ? 0 : `1px solid ${theme.colors.gray[100]};`};
 
+      ${media.lessThan('large')`
+        height: ${isSmall ? 'max-content;' : '28px;'};
+      `}
+
       ${
         isInvalid &&
         `
@@ -67,5 +72,10 @@ export const Select = styled.select<SelectProps>`
     border: 0;
     outline: none;
     flex: 1;
+
+    ${media.lessThan('large')`
+      font-size: ${isSmall ? theme.font.sizes.small : theme.font.sizes.medium};
+      padding: 0;
+    `}
   `}
 `;

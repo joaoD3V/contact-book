@@ -1,4 +1,5 @@
 import styled, { css } from 'styled-components';
+import media from 'styled-media-query';
 
 type WrapperProps = {
   isInvalid: boolean;
@@ -37,6 +38,10 @@ export const Wrapper = styled.div<WrapperProps>`
       gap: 0.8rem;
       padding: 0.8rem 1.6rem;
 
+      ${media.lessThan('large')`
+        height: 32px;
+      `}
+
       ${isInvalid &&
       `
         outline: 1px solid red;
@@ -54,6 +59,10 @@ export const Wrapper = styled.div<WrapperProps>`
         border: 0;
         color: ${theme.colors.gray[100]};
         outline: none;
+
+        ${media.lessThan('large')`
+          font-size: ${theme.font.sizes.medium};
+        `}
 
         &::placeholder {
           color: ${theme.colors.gray[200]};

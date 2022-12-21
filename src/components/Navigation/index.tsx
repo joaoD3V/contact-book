@@ -1,5 +1,6 @@
 import { NotePencil, Trash } from 'phosphor-react';
 import { useContact } from '../../contexts/ContactContext';
+import MediaMatch from '../MediaMatch';
 import * as S from './styles';
 
 export function Navigation() {
@@ -14,7 +15,13 @@ export function Navigation() {
             title="Editar contato"
             onClick={() => handleChangeView('editing')}
           >
-            <NotePencil width="42px" height="42px" />
+            <MediaMatch greaterThan="large">
+              <NotePencil width="42px" height="42px" />
+            </MediaMatch>
+
+            <MediaMatch lessThan="large">
+              <NotePencil width="28px" height="28px" />
+            </MediaMatch>
             <span>Editar</span>
           </button>
 
@@ -26,7 +33,14 @@ export function Navigation() {
               handleChangeView('initial');
             }}
           >
-            <Trash width="42px" height="42px" />
+            <MediaMatch greaterThan="large">
+              <Trash width="42px" height="42px" />
+            </MediaMatch>
+
+            <MediaMatch lessThan="large">
+              <Trash width="28px" height="28px" />
+            </MediaMatch>
+
             <span>Excluir</span>
           </button>
         </>

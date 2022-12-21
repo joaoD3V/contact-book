@@ -1,4 +1,5 @@
 import { createGlobalStyle, css } from 'styled-components';
+import media from 'styled-media-query';
 
 export const GlobalStyles = createGlobalStyle`
 
@@ -91,6 +92,10 @@ export const GlobalStyles = createGlobalStyle`
       background: ${theme.colors.gray[800]};
       padding: ${theme.spacings.lg};
       border-radius: 0.8rem;
+
+      ${media.lessThan('large')`
+        max-width: 90vw;
+      `}
     }
   `}
 
