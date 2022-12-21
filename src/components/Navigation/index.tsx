@@ -1,6 +1,7 @@
 import { NotePencil, Trash } from 'phosphor-react';
 import { useContact } from '../../contexts/ContactContext';
-import MediaMatch from '../MediaMatch';
+import { isMobile } from 'react-device-detect';
+
 import * as S from './styles';
 
 export function Navigation() {
@@ -15,13 +16,12 @@ export function Navigation() {
             title="Editar contato"
             onClick={() => handleChangeView('editing')}
           >
-            <MediaMatch greaterThan="large">
-              <NotePencil width="42px" height="42px" />
-            </MediaMatch>
-
-            <MediaMatch lessThan="large">
+            {isMobile ? (
               <NotePencil width="28px" height="28px" />
-            </MediaMatch>
+            ) : (
+              <NotePencil width="42px" height="42px" />
+            )}
+
             <span>Editar</span>
           </button>
 
@@ -33,13 +33,11 @@ export function Navigation() {
               handleChangeView('initial');
             }}
           >
-            <MediaMatch greaterThan="large">
-              <Trash width="42px" height="42px" />
-            </MediaMatch>
-
-            <MediaMatch lessThan="large">
+            {isMobile ? (
               <Trash width="28px" height="28px" />
-            </MediaMatch>
+            ) : (
+              <Trash width="42px" height="42px" />
+            )}
 
             <span>Excluir</span>
           </button>

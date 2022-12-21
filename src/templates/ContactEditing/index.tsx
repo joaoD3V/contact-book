@@ -24,7 +24,7 @@ import * as S from './styles';
 import { AddressModal } from '../../components/Modal/AddressModal';
 import { useState } from 'react';
 import { Select } from '../../components/Form/Select';
-import MediaMatch from '../../components/MediaMatch';
+import { isMobile } from 'react-device-detect';
 
 type ContactEditingProps = {
   contact?: Contact;
@@ -44,6 +44,8 @@ export function ContactEditing({ contact }: ContactEditingProps) {
   const [selectAddress, setSelectAddress] = useState<Address | undefined>(
     undefined
   );
+
+  const [selectPhone, setSelectPhone] = useState<Phone | undefined>(undefined);
   const [addresses, setAddresses] = useState<Address[]>(
     contact ? contact.addresses : []
   );
@@ -60,14 +62,8 @@ export function ContactEditing({ contact }: ContactEditingProps) {
     isAddressModalOpen,
     isAddPhoneModalOpen,
   } = useModal();
-  const {
-    typeAddresses,
-    typePhones,
-    groups,
-    handleAddContact,
-    handleUpdateContact,
-    handleChangeView,
-  } = useContact();
+  const { groups, handleAddContact, handleUpdateContact, handleChangeView } =
+    useContact();
 
   const handleSaveContact: SubmitHandler<ContactFormData> = async (values) => {
     const contactToAdd: Omit<Contact, 'id'> = {
@@ -88,8 +84,34 @@ export function ContactEditing({ contact }: ContactEditingProps) {
     setAddresses((prevValues) => [...prevValues, address]);
   }
 
+  function handleUpdateAddress(address: Address) {
+    setAddresses((prevValues) => {
+      return [...prevValues].map((prev) => {
+        if (prev.id === address.id) {
+          return { ...address };
+        }
+
+        return prev;
+      });
+    });
+    setSelectAddress(() => undefined);
+  }
+
   function handleSetPhones(phone: Phone) {
     setPhones((prevValues) => [...prevValues, phone]);
+  }
+
+  function handleUpdatePhone(phone: Phone) {
+    setPhones((prevValues) => {
+      return [...prevValues].map((prev) => {
+        if (prev.id === phone.id) {
+          return { ...phone };
+        }
+
+        return prev;
+      });
+    });
+    setSelectPhone(() => undefined);
   }
 
   function handleRemoveAddress(id: string) {
@@ -106,10 +128,20 @@ export function ContactEditing({ contact }: ContactEditingProps) {
 
   return (
     <>
+      <span>{selectPhone?.number}</span>
+      <span>{selectAddress?.id}</span>
       <S.FormWrapper onSubmit={handleSubmit(handleSaveContact)}>
         <S.FormScrollView>
           <S.FormContent>
-            <MediaMatch greaterThan="large" style={{ width: '100%' }}>
+            {isMobile ? (
+              <Input
+                defaultValue={contact?.name}
+                type="text"
+                placeholder="Nome completo"
+                error={errors.name}
+                {...register('name')}
+              />
+            ) : (
               <Input
                 defaultValue={contact?.name}
                 type="text"
@@ -118,50 +150,26 @@ export function ContactEditing({ contact }: ContactEditingProps) {
                 error={errors.name}
                 {...register('name')}
               />
-            </MediaMatch>
-            <MediaMatch lessThan="large" style={{ width: '100%' }}>
-              <Input
-                defaultValue={contact?.name}
-                type="text"
-                placeholder="Nome completo"
-                error={errors.name}
-                {...register('name')}
-              />
-            </MediaMatch>
+            )}
 
             <S.FieldsGroup>
               {phones.length > 0 && (
                 <S.Info>
-                  <MediaMatch greaterThan="large">
-                    <PhoneIcon width="28px" height="28px" />
-                  </MediaMatch>
+                  {!isMobile && <PhoneIcon width="28px" height="28px" />}
                   <S.Group>
                     {phones.map((phone) => (
                       <S.Field key={phone.id}>
-                        <Select
-                          name="typePhone"
-                          defaultValue={phone.type}
-                          isSmall
-                          onChange={(e) =>
-                            setPhones((prevValues) => {
-                              const newValues = prevValues.map((prev) => {
-                                if (prev.id === phone.id) {
-                                  return { ...prev, type: e.target.value };
-                                }
-                                return { ...prev };
-                              });
-                              return [...newValues];
-                            })
-                          }
+                        <S.AddressButton
+                          type="button"
+                          title="Alterar número de telefone"
+                          onClick={() => {
+                            setSelectPhone(() => phone);
+                            handleToggleAddPhoneModal();
+                          }}
                         >
-                          {typePhones.map((type) => (
-                            <option key={type} value={type}>
-                              {type}
-                            </option>
-                          ))}
-                        </Select>
-
-                        <input defaultValue={phone.number} type="number" />
+                          <span>{phone.type}</span>
+                          {phone.number}
+                        </S.AddressButton>
 
                         <S.RemoveField
                           type="button"
@@ -179,7 +187,10 @@ export function ContactEditing({ contact }: ContactEditingProps) {
               <S.AddNewField
                 type="button"
                 title="Adicionar novo número"
-                onClick={handleToggleAddPhoneModal}
+                onClick={() => {
+                  setSelectPhone(() => undefined);
+                  handleToggleAddPhoneModal();
+                }}
               >
                 <span>
                   <Plus width="22px" height="22px" />
@@ -188,7 +199,14 @@ export function ContactEditing({ contact }: ContactEditingProps) {
               </S.AddNewField>
             </S.FieldsGroup>
 
-            <MediaMatch greaterThan="large" style={{ width: '100%' }}>
+            {isMobile ? (
+              <Input
+                defaultValue={contact?.email}
+                type="email"
+                placeholder="E-mail"
+                {...register('email')}
+              />
+            ) : (
               <Input
                 defaultValue={contact?.email}
                 type="email"
@@ -196,56 +214,25 @@ export function ContactEditing({ contact }: ContactEditingProps) {
                 icon={<EnvelopeSimple width="28px" height="28px" />}
                 {...register('email')}
               />
-            </MediaMatch>
-
-            <MediaMatch lessThan="large" style={{ width: '100%' }}>
-              <Input
-                defaultValue={contact?.email}
-                type="email"
-                placeholder="E-mail"
-                {...register('email')}
-              />
-            </MediaMatch>
+            )}
 
             <S.FieldsGroup>
               {addresses.length > 0 && (
                 <S.Info>
-                  <MediaMatch greaterThan="large">
-                    <House width="28px" height="28px" />
-                  </MediaMatch>
+                  {!isMobile && <House width="28px" height="28px" />}
+
                   <S.Group>
                     {addresses.map((address) => (
                       <S.Field key={address.id}>
-                        <Select
-                          name="typeAddress"
-                          defaultValue={address.type}
-                          isSmall
-                          onChange={(e) =>
-                            setAddresses((prevValues) => {
-                              const newValues = prevValues.map((prev) => {
-                                if (prev.id === address.id) {
-                                  return { ...prev, type: e.target.value };
-                                }
-                                return { ...prev };
-                              });
-                              return [...newValues];
-                            })
-                          }
-                        >
-                          {typeAddresses.map((type) => (
-                            <option key={type} value={type}>
-                              {type}
-                            </option>
-                          ))}
-                        </Select>
                         <S.AddressButton
                           type="button"
                           title="Alterar endereço"
                           onClick={() => {
-                            setSelectAddress(address);
+                            setSelectAddress(() => address);
                             handleToggleAddressModal();
                           }}
                         >
+                          <span>{address.type}</span>
                           {address.street}
                         </S.AddressButton>
 
@@ -265,7 +252,10 @@ export function ContactEditing({ contact }: ContactEditingProps) {
               <S.AddNewField
                 type="button"
                 title="Adicionar novo endereço"
-                onClick={handleToggleAddressModal}
+                onClick={() => {
+                  setSelectAddress(() => undefined);
+                  handleToggleAddressModal();
+                }}
               >
                 <span>
                   <Plus width="22px" height="22px" />
@@ -274,7 +264,15 @@ export function ContactEditing({ contact }: ContactEditingProps) {
               </S.AddNewField>
             </S.FieldsGroup>
 
-            <MediaMatch greaterThan="large" style={{ width: '100%' }}>
+            {isMobile ? (
+              <Select {...register('group')} defaultValue={contact?.group}>
+                {groups.map((group) => (
+                  <option key={group} value={group}>
+                    {group}
+                  </option>
+                ))}
+              </Select>
+            ) : (
               <Select
                 {...register('group')}
                 icon={<Users width="28px" height="28px" />}
@@ -286,17 +284,7 @@ export function ContactEditing({ contact }: ContactEditingProps) {
                   </option>
                 ))}
               </Select>
-            </MediaMatch>
-
-            <MediaMatch lessThan="large" style={{ width: '100%' }}>
-              <Select {...register('group')} defaultValue={contact?.group}>
-                {groups.map((group) => (
-                  <option key={group} value={group}>
-                    {group}
-                  </option>
-                ))}
-              </Select>
-            </MediaMatch>
+            )}
           </S.FormContent>
         </S.FormScrollView>
         <Navigation />
@@ -304,13 +292,16 @@ export function ContactEditing({ contact }: ContactEditingProps) {
 
       <AddPhoneModal
         onSave={handleSetPhones}
+        onUpdate={handleUpdatePhone}
         isOpen={isAddPhoneModalOpen}
         onRequestClose={handleToggleAddPhoneModal}
+        defaultValue={selectPhone}
       />
 
       <AddressModal
         defaultValue={selectAddress}
         onSave={handleSetAddresses}
+        onUpdate={handleUpdateAddress}
         isOpen={isAddressModalOpen}
         onRequestClose={handleToggleAddressModal}
       />

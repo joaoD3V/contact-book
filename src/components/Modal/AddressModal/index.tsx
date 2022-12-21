@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import { Modal } from '..';
 import { SubmitHandler, useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
@@ -9,7 +10,8 @@ import { Input } from '../../Form/Input';
 import { v4 as uuid } from 'uuid';
 import * as yup from 'yup';
 import * as S from './styles';
-import MediaMatch from '../../MediaMatch';
+import { isMobile } from 'react-device-detect';
+import { useEffect } from 'react';
 
 type AddAddressFormData = {
   type: string;
@@ -46,6 +48,7 @@ type AddressModalProps = {
   onRequestClose: () => void;
   defaultValue?: Address;
   onSave: (address: Address) => void;
+  onUpdate: (address: Address) => void;
 };
 
 export function AddressModal({
@@ -53,6 +56,7 @@ export function AddressModal({
   onRequestClose,
   defaultValue,
   onSave,
+  onUpdate,
 }: AddressModalProps) {
   const { register, handleSubmit, formState, setValue, reset, clearErrors } =
     useForm<AddAddressFormData>({
@@ -62,9 +66,24 @@ export function AddressModal({
 
   const { typeAddresses } = useContact();
 
+  useEffect(() => {
+    if (defaultValue) {
+      setValue('type', defaultValue.type);
+      setValue('cep', defaultValue.cep);
+      setValue('street', defaultValue.street);
+      setValue('number', defaultValue.number);
+      setValue('complement', defaultValue.complement);
+      setValue('neighborhood', defaultValue.neighborhood);
+      setValue('city', defaultValue.city);
+      setValue('state', defaultValue.state);
+    } else {
+      reset();
+    }
+  }, [defaultValue]);
+
   const handleAddAddress: SubmitHandler<AddAddressFormData> = (values) => {
     const address: Address = {
-      id: uuid(),
+      id: defaultValue ? defaultValue.id : uuid(),
       type: values.type,
       cep: values.cep,
       street: values.street,
@@ -75,7 +94,7 @@ export function AddressModal({
       state: values.state,
     };
 
-    onSave(address);
+    defaultValue ? onUpdate(address) : onSave(address);
     reset();
     onRequestClose();
   };
@@ -164,20 +183,7 @@ export function AddressModal({
         />
 
         <S.GroupFields>
-          <MediaMatch greaterThan="large">
-            <Input
-              defaultValue={defaultValue ? defaultValue.number : ''}
-              type="number"
-              label="Número"
-              placeholder="123"
-              error={errors.number!}
-              {...register('number')}
-              bgColor="primary"
-              style={{ width: '100px' }}
-            />
-          </MediaMatch>
-
-          <MediaMatch lessThan="large">
+          {isMobile ? (
             <Input
               defaultValue={defaultValue ? defaultValue.number : ''}
               type="number"
@@ -188,7 +194,18 @@ export function AddressModal({
               bgColor="primary"
               style={{ width: '10px' }}
             />
-          </MediaMatch>
+          ) : (
+            <Input
+              defaultValue={defaultValue ? defaultValue.number : ''}
+              type="number"
+              label="Número"
+              placeholder="123"
+              error={errors.number!}
+              {...register('number')}
+              bgColor="primary"
+              style={{ width: '100px' }}
+            />
+          )}
 
           <Input
             defaultValue={defaultValue ? defaultValue.complement : ''}
@@ -202,21 +219,7 @@ export function AddressModal({
         </S.GroupFields>
 
         <S.GroupFields>
-          <MediaMatch greaterThan="large">
-            <Input
-              defaultValue={defaultValue ? defaultValue.neighborhood : ''}
-              type="text"
-              label="Bairro"
-              placeholder="Centro"
-              error={errors.neighborhood!}
-              {...register('neighborhood')}
-              bgColor="primary"
-              readOnly
-              style={{ width: '150px' }}
-            />
-          </MediaMatch>
-
-          <MediaMatch lessThan="large">
+          {isMobile ? (
             <Input
               defaultValue={defaultValue ? defaultValue.neighborhood : ''}
               type="text"
@@ -228,7 +231,19 @@ export function AddressModal({
               readOnly
               style={{ width: '80px' }}
             />
-          </MediaMatch>
+          ) : (
+            <Input
+              defaultValue={defaultValue ? defaultValue.neighborhood : ''}
+              type="text"
+              label="Bairro"
+              placeholder="Centro"
+              error={errors.neighborhood!}
+              {...register('neighborhood')}
+              bgColor="primary"
+              readOnly
+              style={{ width: '150px' }}
+            />
+          )}
 
           <Input
             defaultValue={defaultValue ? defaultValue.city : ''}

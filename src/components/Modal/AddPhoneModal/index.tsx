@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import { Modal } from '..';
 import { Select } from '../../Form/Select';
 import { yupResolver } from '@hookform/resolvers/yup';
@@ -8,6 +9,7 @@ import { v4 as uuid } from 'uuid';
 
 import * as yup from 'yup';
 import * as S from './styles';
+import { useEffect } from 'react';
 
 type AddPhoneFormData = {
   type: string;
@@ -23,14 +25,18 @@ type AddPhoneModalProps = {
   isOpen: boolean;
   onRequestClose: () => void;
   onSave: (phone: Phone) => void;
+  onUpdate: (phone: Phone) => void;
+  defaultValue?: Phone;
 };
 
 export function AddPhoneModal({
   onSave,
+  onUpdate,
   isOpen,
   onRequestClose,
+  defaultValue,
 }: AddPhoneModalProps) {
-  const { register, handleSubmit, formState, reset } =
+  const { register, handleSubmit, formState, reset, setValue } =
     useForm<AddPhoneFormData>({
       resolver: yupResolver(AddPhoneFormSchema),
     });
@@ -38,13 +44,22 @@ export function AddPhoneModal({
 
   const { typePhones } = useContact();
 
+  useEffect(() => {
+    if (defaultValue) {
+      setValue('number', defaultValue.number);
+      setValue('type', defaultValue.type);
+    } else {
+      reset();
+    }
+  }, [defaultValue]);
+
   const handleAddPhone: SubmitHandler<AddPhoneFormData> = (values) => {
     const phone: Phone = {
-      id: uuid(),
+      id: defaultValue ? defaultValue.id : uuid(),
       type: values.type,
       number: values.number,
     };
-    onSave(phone);
+    defaultValue ? onUpdate(phone) : onSave(phone);
     reset();
     onRequestClose();
   };
@@ -57,6 +72,7 @@ export function AddPhoneModal({
     >
       <S.Form onSubmit={handleSubmit(handleAddPhone)}>
         <Select
+          defaultValue={defaultValue?.type}
           label="Tipo de telefone"
           error={errors.type!}
           {...register('type')}
@@ -68,6 +84,7 @@ export function AddPhoneModal({
           ))}
         </Select>
         <Input
+          defaultValue={defaultValue?.number}
           type="number"
           label="Número de telefone"
           placeholder="Ex: 022998765432"

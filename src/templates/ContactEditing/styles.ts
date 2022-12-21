@@ -140,6 +140,13 @@ export const AddressButton = styled.button`
     border: 0;
     color: ${theme.colors.gray[100]};
     transition: filter ${theme.transition.fast};
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+
+    span {
+      font-size: ${theme.font.sizes.small};
+    }
 
     ${media.lessThan('large')`
         font-size: ${theme.font.sizes.medium};
