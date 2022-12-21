@@ -44,12 +44,14 @@ export const FormContent = styled.div`
     justify-content: center;
     flex-direction: column;
     gap: ${theme.spacings.md};
+    padding: 0 ${theme.spacings['5xl']} ${theme.spacings['2xl']}
+      ${theme.spacings['5xl']};
   `}
 `;
 
 export const FieldsGroup = styled.div`
   ${({ theme }) => css`
-    width: 500px;
+    width: 100%;
     background-color: ${theme.colors.gray[800]};
     border-radius: 0.8rem;
     display: flex;
@@ -167,26 +169,6 @@ export const AddNewField = styled.button`
       span {
         filter: brightness(0.8);
       }
-    }
-  `}
-`;
-
-export const ContactGroup = styled.button`
-  ${({ theme }) => css`
-    width: 500px;
-    height: 44px;
-    background-color: ${theme.colors.gray[800]};
-    border-radius: 0.8rem;
-    display: flex;
-    align-items: center;
-    gap: 0.8rem;
-    padding: 0.8rem 1.6rem;
-    font-size: ${theme.font.sizes.xlarge};
-    color: ${theme.colors.gray[100]};
-    transition: filter ${theme.transition.fast};
-
-    &:hover {
-      filter: brightness(0.8);
     }
   `}
 `;

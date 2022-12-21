@@ -1,14 +1,10 @@
 import { createContext, useContext, useState } from 'react';
 
 type ModalContextData = {
-  isTypePhoneModalOpen: boolean;
   isAddPhoneModalOpen: boolean;
-  isTypeAddressModalOpen: boolean;
-  isAddAddressModalOpen: boolean;
-  handleToggleTypePhoneModal: () => void;
+  isAddressModalOpen: boolean;
   handleToggleAddPhoneModal: () => void;
-  handleToggleTypeAddressModal: () => void;
-  handleToggleAddAddressModal: () => void;
+  handleToggleAddressModal: () => void;
 };
 
 type ModalProviderProps = {
@@ -18,46 +14,24 @@ type ModalProviderProps = {
 const ModalContext = createContext({} as ModalContextData);
 
 export function ModalProvider({ children }: ModalProviderProps) {
-  const [isTypePhoneModalOpen, setIsTypePhoneModalOpen] = useState(false);
   const [isAddPhoneModalOpen, setIsAddPhoneModalOpen] = useState(false);
-  const [isTypeAddressModalOpen, setIsTypeAddressModalOpen] = useState(false);
-  const [isAddAddressModalOpen, setIsAddAddressModalOpen] = useState(false);
-
-  function handleToggleTypePhoneModal() {
-    isTypePhoneModalOpen
-      ? setIsTypePhoneModalOpen(false)
-      : setIsTypePhoneModalOpen(true);
-  }
+  const [isAddressModalOpen, setIsAddressModalOpen] = useState(false);
 
   function handleToggleAddPhoneModal() {
-    isAddPhoneModalOpen
-      ? setIsAddPhoneModalOpen(false)
-      : setIsAddPhoneModalOpen(true);
+    setIsAddPhoneModalOpen(!isAddPhoneModalOpen);
   }
 
-  function handleToggleTypeAddressModal() {
-    isTypeAddressModalOpen
-      ? setIsTypeAddressModalOpen(false)
-      : setIsTypeAddressModalOpen(true);
-  }
-
-  function handleToggleAddAddressModal() {
-    isAddAddressModalOpen
-      ? setIsAddAddressModalOpen(false)
-      : setIsAddAddressModalOpen(true);
+  function handleToggleAddressModal() {
+    setIsAddressModalOpen(!isAddressModalOpen);
   }
 
   return (
     <ModalContext.Provider
       value={{
-        isTypePhoneModalOpen,
         isAddPhoneModalOpen,
-        isAddAddressModalOpen,
-        isTypeAddressModalOpen,
-        handleToggleTypePhoneModal,
+        isAddressModalOpen,
         handleToggleAddPhoneModal,
-        handleToggleTypeAddressModal,
-        handleToggleAddAddressModal,
+        handleToggleAddressModal,
       }}
     >
       {children}

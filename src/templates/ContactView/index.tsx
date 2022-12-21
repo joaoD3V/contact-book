@@ -15,19 +15,23 @@ export function ContactView({ contact }: ContactViewProps) {
       <S.Content>
         <h1>{contact.name}</h1>
 
-        <S.Phones>
-          {contact.phones.map((phone) => (
-            <div key={phone.id}>
-              <span>{phone.type}</span>
-              <h2>{phone.number}</h2>
-            </div>
-          ))}
-        </S.Phones>
+        {contact.phones.length > 0 && (
+          <S.Phones>
+            {contact.phones.map((phone) => (
+              <div key={phone.id}>
+                <span>{phone.type}</span>
+                <h2>{phone.number}</h2>
+              </div>
+            ))}
+          </S.Phones>
+        )}
 
-        <S.Email>
-          <EnvelopeSimple width="28px" height="28px" />
-          <p>{contact.email}</p>
-        </S.Email>
+        {contact?.email && (
+          <S.Email>
+            <EnvelopeSimple width="28px" height="28px" />
+            <p>{contact.email}</p>
+          </S.Email>
+        )}
 
         <S.AddressesList>
           {contact.addresses.map((address) => (
@@ -52,7 +56,7 @@ export function ContactView({ contact }: ContactViewProps) {
                   <p>{address.complement}</p>
                 </S.AddressField>
                 <p>
-                  {address.city}, {address.state}, {address.country}
+                  {address.neighborhood}, {address.city}, {address.state}
                 </p>
               </S.AddressInfo>
             </S.Addresses>

@@ -1,12 +1,13 @@
 import { Modal } from '..';
-import { useModal } from '../../../contexts/ModalContext';
 import { Select } from '../../Form/Select';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { SubmitHandler, useForm } from 'react-hook-form';
+import { Input } from '../../Form/Input';
+import { Phone, useContact } from '../../../contexts/ContactContext';
+import { v4 as uuid } from 'uuid';
+
 import * as yup from 'yup';
 import * as S from './styles';
-import { Input } from '../../Form/Input';
-import { typePhones } from '../../../mocks/types';
 
 type AddPhoneFormData = {
   type: string;
@@ -18,23 +19,40 @@ const AddPhoneFormSchema = yup.object().shape({
   number: yup.string().required('Número de telefone obrigatório'),
 });
 
-export function AddPhoneModal() {
-  const { register, handleSubmit, formState } = useForm<AddPhoneFormData>({
-    resolver: yupResolver(AddPhoneFormSchema),
-  });
+type AddPhoneModalProps = {
+  isOpen: boolean;
+  onRequestClose: () => void;
+  onSave: (phone: Phone) => void;
+};
+
+export function AddPhoneModal({
+  onSave,
+  isOpen,
+  onRequestClose,
+}: AddPhoneModalProps) {
+  const { register, handleSubmit, formState, reset } =
+    useForm<AddPhoneFormData>({
+      resolver: yupResolver(AddPhoneFormSchema),
+    });
   const { errors } = formState;
 
-  const { handleToggleAddPhoneModal, isAddPhoneModalOpen } = useModal();
+  const { typePhones } = useContact();
 
-  const handleAddPhone: SubmitHandler<AddPhoneFormData> = async (values) => {
-    console.log(values);
-    handleToggleAddPhoneModal();
+  const handleAddPhone: SubmitHandler<AddPhoneFormData> = (values) => {
+    const phone: Phone = {
+      id: uuid(),
+      type: values.type,
+      number: values.number,
+    };
+    onSave(phone);
+    reset();
+    onRequestClose();
   };
 
   return (
     <Modal
-      isOpen={isAddPhoneModalOpen}
-      onRequestClose={handleToggleAddPhoneModal}
+      isOpen={isOpen}
+      onRequestClose={onRequestClose}
       title="Adicionar novo número"
     >
       <S.Form onSubmit={handleSubmit(handleAddPhone)}>
@@ -62,7 +80,7 @@ export function AddPhoneModal() {
           <S.CancelButton
             type="button"
             title="Cancelar"
-            onClick={handleToggleAddPhoneModal}
+            onClick={onRequestClose}
           >
             Cancelar
           </S.CancelButton>

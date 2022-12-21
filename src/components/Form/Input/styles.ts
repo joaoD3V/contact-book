@@ -11,6 +11,7 @@ export const Wrapper = styled.div<WrapperProps>`
     flex-direction: column;
     align-items: flex-start;
     gap: 0.8rem;
+    width: 100%;
 
     label {
       font-size: ${theme.font.sizes.small};
@@ -20,10 +21,11 @@ export const Wrapper = styled.div<WrapperProps>`
     span {
       color: red;
       font-weight: 300;
+      word-break: break-all;
     }
 
     div {
-      width: 500px;
+      width: 100%;
       max-width: 100%;
       height: 44px;
       background-color: ${bgColor === 'secondary'
@@ -55,6 +57,12 @@ export const Wrapper = styled.div<WrapperProps>`
 
         &::placeholder {
           color: ${theme.colors.gray[200]};
+          filter: brightness(0.6);
+        }
+
+        &:read-only {
+          cursor: not-allowed;
+          outline: none;
         }
       }
     }

@@ -1,0 +1,839 @@
+{
+  "contacts": [
+    {
+      "name": "Rick Schaefer PhDd",
+      "email": "caleb.nicolas85@gmail.com",
+      "group": "Outros",
+      "addresses": [
+        {
+          "id": "cd1b0209-9bd2-465c-8c13-2cd4a79c0f25",
+          "type": "Outros",
+          "cep": "68627-433",
+          "street": "Rua Sete de Setembro",
+          "neighborhood": "Laércio Cabeline",
+          "city": "Paragominas",
+          "state": "Pará",
+          "number": "15",
+          "complement": "Bloco 01"
+        },
+        {
+          "id": "68f9ad2c-d570-414e-b922-6cec1a531c5e",
+          "type": "Principal",
+          "cep": "69309-188",
+          "street": "Avenida dos Imigrantes",
+          "neighborhood": "Buritis",
+          "city": "Boa Vista",
+          "state": "Roraima",
+          "number": "20",
+          "complement": "Apto. 03"
+        }
+      ],
+      "phones": [
+        {
+          "id": "bad8ba66-7046-46f7-af04-4d436c02ee7c",
+          "number": "00319244448",
+          "type": "Outros"
+        },
+        {
+          "id": "ae92bc58-a4fb-4692-b8b4-037e09612403",
+          "number": "006286762444",
+          "type": "Pager"
+        }
+      ],
+      "id": "c0abded5-2075-427f-afc1-1626a2f826a3"
+    },
+    {
+      "id": "f791c228-6223-4505-a5db-7a66dfcbb2a7",
+      "name": "Laurence Streich",
+      "email": "alden70@yahoo.com",
+      "group": "Amigos",
+      "addresses": [
+        {
+          "id": "2a10b09e-44ca-4e4e-86bc-b628e1647622",
+          "type": "Secundário",
+          "cep": "68627-433",
+          "street": "Rua Sete de Setembro",
+          "neighborhood": "Laércio Cabeline",
+          "city": "Paragominas",
+          "state": "Pará",
+          "number": "15",
+          "complement": "Bloco 01"
+        },
+        {
+          "id": "82da5aa1-1666-4b7c-b7f5-b48f3147181a",
+          "type": "Outros",
+          "cep": "69309-188",
+          "street": "Avenida dos Imigrantes",
+          "neighborhood": "Buritis",
+          "city": "Boa Vista",
+          "state": "Roraima",
+          "number": "20",
+          "complement": "Apto. 03"
+        }
+      ],
+      "phones": [
+        {
+          "id": "5f0ad5b8-56b8-4801-8335-99fb03947cdb",
+          "number": "04609971274",
+          "type": "Fax do trabalho"
+        },
+        {
+          "id": "0c291c4d-2a15-4255-a810-4d36d5ee59e5",
+          "number": "018254097576",
+          "type": "Outros"
+        }
+      ]
+    },
+    {
+      "id": "1907a1d3-2f6d-4023-a08c-8477d86cb68e",
+      "name": "Helen Herman",
+      "email": "trever.franecki@yahoo.com",
+      "group": "Trabalho",
+      "addresses": [
+        {
+          "id": "dc33dde8-05f4-4ebf-bc39-004b1f25b2b2",
+          "type": "Outros",
+          "cep": "68627-433",
+          "street": "Rua Sete de Setembro",
+          "neighborhood": "Laércio Cabeline",
+          "city": "Paragominas",
+          "state": "Pará",
+          "number": "15",
+          "complement": "Bloco 01"
+        },
+        {
+          "id": "bcf82cfa-87c0-423a-adda-5eb2acf4addd",
+          "type": "Outros",
+          "cep": "69309-188",
+          "street": "Avenida dos Imigrantes",
+          "neighborhood": "Buritis",
+          "city": "Boa Vista",
+          "state": "Roraima",
+          "number": "20",
+          "complement": "Apto. 03"
+        }
+      ],
+      "phones": [
+        {
+          "id": "c09ba893-ef80-40ff-b2ee-e04da300578e",
+          "number": "04723140467",
+          "type": "Fax do trabalho"
+        },
+        {
+          "id": "cce62e11-c51a-4e97-a54c-59d7d8da462c",
+          "number": "013817145093",
+          "type": "Fax do trabalho"
+        }
+      ]
+    },
+    {
+      "id": "5a8c2c10-fbb1-4357-b96d-ab19503bda23",
+      "name": "Faye Aufderhar",
+      "email": "jacklyn_cremin@gmail.com",
+      "group": "Outros",
+      "addresses": [
+        {
+          "id": "3a4c6f71-bb81-4814-9d78-b93898a8d8dd",
+          "type": "Principal",
+          "cep": "68627-433",
+          "street": "Rua Sete de Setembro",
+          "neighborhood": "Laércio Cabeline",
+          "city": "Paragominas",
+          "state": "Pará",
+          "number": "15",
+          "complement": "Bloco 01"
+        },
+        {
+          "id": "de455925-9156-4669-9f3e-8375f8608200",
+          "type": "Secundário",
+          "cep": "69309-188",
+          "street": "Avenida dos Imigrantes",
+          "neighborhood": "Buritis",
+          "city": "Boa Vista",
+          "state": "Roraima",
+          "number": "20",
+          "complement": "Apto. 03"
+        }
+      ],
+      "phones": [
+        {
+          "id": "cc359d29-0ab6-4a68-ad2b-c28f2dc944a8",
+          "number": "04778621089",
+          "type": "Fax de casa"
+        },
+        {
+          "id": "ffc9f7b7-50fa-4132-bf88-386c3314d674",
+          "number": "081224101705",
+          "type": "Casa"
+        }
+      ]
+    },
+    {
+      "id": "ab5bc089-8c0b-47f3-a831-18d5d237b052",
+      "name": "William Robel",
+      "email": "davion58@yahoo.com",
+      "group": "Amigos",
+      "addresses": [
+        {
+          "id": "0ad3b215-61d7-4f53-9ad4-159c9667a1ca",
+          "type": "Secundário",
+          "cep": "68627-433",
+          "street": "Rua Sete de Setembro",
+          "neighborhood": "Laércio Cabeline",
+          "city": "Paragominas",
+          "state": "Pará",
+          "number": "15",
+          "complement": "Bloco 01"
+        },
+        {
+          "id": "f1e9b3d8-b8a1-489c-bdbb-cc66a8f8b751",
+          "type": "Secundário",
+          "cep": "69309-188",
+          "street": "Avenida dos Imigrantes",
+          "neighborhood": "Buritis",
+          "city": "Boa Vista",
+          "state": "Roraima",
+          "number": "20",
+          "complement": "Apto. 03"
+        }
+      ],
+      "phones": [
+        {
+          "id": "f6373043-f6a8-4644-a75d-f5ad9db9ae92",
+          "number": "04495526545",
+          "type": "Fax de casa"
+        },
+        {
+          "id": "d564d4d8-ed14-42f1-82e4-23f46232ae5a",
+          "number": "079891098380",
+          "type": "Pager"
+        }
+      ]
+    },
+    {
+      "id": "a114a594-3818-47c9-ac7a-55fee8ac0bda",
+      "name": "Dustin Berge",
+      "email": "garnett_fay59@gmail.com",
+      "group": "Trabalho",
+      "addresses": [
+        {
+          "id": "4be06683-5eae-44e0-b2ae-5277b0910a9a",
+          "type": "Secundário",
+          "cep": "68627-433",
+          "street": "Rua Sete de Setembro",
+          "neighborhood": "Laércio Cabeline",
+          "city": "Paragominas",
+          "state": "Pará",
+          "number": "15",
+          "complement": "Bloco 01"
+        },
+        {
+          "id": "45220ee6-3cd8-40bd-b3e3-a642ca0e3c59",
+          "type": "Secundário",
+          "cep": "69309-188",
+          "street": "Avenida dos Imigrantes",
+          "neighborhood": "Buritis",
+          "city": "Boa Vista",
+          "state": "Roraima",
+          "number": "20",
+          "complement": "Apto. 03"
+        }
+      ],
+      "phones": [
+        {
+          "id": "8adef810-42da-4b29-9314-bdad6ffd362b",
+          "number": "03418486587",
+          "type": "Pager"
+        },
+        {
+          "id": "7b56891c-6b19-41b7-9ae2-634cd3ebffae",
+          "number": "042487924734",
+          "type": "Outros"
+        }
+      ]
+    },
+    {
+      "id": "8de536a7-167e-4969-831d-9f4c5da7e607",
+      "name": "Priscilla Kub",
+      "email": "eugenia.koelpin5@gmail.com",
+      "group": "Outros",
+      "addresses": [
+        {
+          "id": "8eb8659e-29c4-43a8-b287-3c238a298ca8",
+          "type": "Outros",
+          "cep": "68627-433",
+          "street": "Rua Sete de Setembro",
+          "neighborhood": "Laércio Cabeline",
+          "city": "Paragominas",
+          "state": "Pará",
+          "number": "15",
+          "complement": "Bloco 01"
+        },
+        {
+          "id": "16b6f73b-dbbf-497c-afa3-3e187872cac2",
+          "type": "Secundário",
+          "cep": "69309-188",
+          "street": "Avenida dos Imigrantes",
+          "neighborhood": "Buritis",
+          "city": "Boa Vista",
+          "state": "Roraima",
+          "number": "20",
+          "complement": "Apto. 03"
+        }
+      ],
+      "phones": [
+        {
+          "id": "0522675b-533f-4e66-82b3-4586fabf4404",
+          "number": "03495872510",
+          "type": "Celular"
+        },
+        {
+          "id": "eeb548fb-99c1-48d9-b120-b3b6a15e8011",
+          "number": "004106150818",
+          "type": "Outros"
+        }
+      ]
+    },
+    {
+      "id": "26c03088-dba9-46ba-9f5e-13e77dd04056",
+      "name": "Mrs. Loren Hayes",
+      "email": "jaylon_herman@yahoo.com",
+      "group": "Escola",
+      "addresses": [
+        {
+          "id": "b6bcdc70-fd5a-4d6c-aa7c-ae15006b6bdf",
+          "type": "Outros",
+          "cep": "68627-433",
+          "street": "Rua Sete de Setembro",
+          "neighborhood": "Laércio Cabeline",
+          "city": "Paragominas",
+          "state": "Pará",
+          "number": "15",
+          "complement": "Bloco 01"
+        },
+        {
+          "id": "badb43d0-bc07-452c-b64f-835900d9d54f",
+          "type": "Secundário",
+          "cep": "69309-188",
+          "street": "Avenida dos Imigrantes",
+          "neighborhood": "Buritis",
+          "city": "Boa Vista",
+          "state": "Roraima",
+          "number": "20",
+          "complement": "Apto. 03"
+        }
+      ],
+      "phones": [
+        {
+          "id": "287d2f33-bafb-49cc-8872-65d64ed8bf5d",
+          "number": "07082967912",
+          "type": "Fax do trabalho"
+        },
+        {
+          "id": "7d36df4e-31f1-4dda-b106-a20878fb313b",
+          "number": "070003160711",
+          "type": "Pager"
+        }
+      ]
+    },
+    {
+      "id": "f5183e4d-384d-4f2c-ac4e-74576fd43e74",
+      "name": "Tricia Wolff",
+      "email": "adolf97@gmail.com",
+      "group": "Trabalho",
+      "addresses": [
+        {
+          "id": "cbeb832c-77b9-420b-9e26-77c964a0c090",
+          "type": "Principal",
+          "cep": "68627-433",
+          "street": "Rua Sete de Setembro",
+          "neighborhood": "Laércio Cabeline",
+          "city": "Paragominas",
+          "state": "Pará",
+          "number": "15",
+          "complement": "Bloco 01"
+        },
+        {
+          "id": "0afd7d6a-6cd8-4bfc-b5bb-866f60a71497",
+          "type": "Secundário",
+          "cep": "69309-188",
+          "street": "Avenida dos Imigrantes",
+          "neighborhood": "Buritis",
+          "city": "Boa Vista",
+          "state": "Roraima",
+          "number": "20",
+          "complement": "Apto. 03"
+        }
+      ],
+      "phones": [
+        {
+          "id": "df20b49b-042c-4854-a4a7-adccdd395f21",
+          "number": "00184231382",
+          "type": "Celular"
+        },
+        {
+          "id": "73b095bc-139c-464d-95e9-6a3f06a2e211",
+          "number": "021126676287",
+          "type": "Celular"
+        }
+      ]
+    },
+    {
+      "id": "9157c37c-0b2f-4fd7-89b9-cfdc6a4aceff",
+      "name": "Lee Bayer",
+      "email": "lawson20@gmail.com",
+      "group": "Outros",
+      "addresses": [
+        {
+          "id": "5b55ac34-b802-49cc-831f-5ce1f7e26a9b",
+          "type": "Outros",
+          "cep": "68627-433",
+          "street": "Rua Sete de Setembro",
+          "neighborhood": "Laércio Cabeline",
+          "city": "Paragominas",
+          "state": "Pará",
+          "number": "15",
+          "complement": "Bloco 01"
+        },
+        {
+          "id": "11257778-5f9c-41be-a77a-9d353cc7234a",
+          "type": "Principal",
+          "cep": "69309-188",
+          "street": "Avenida dos Imigrantes",
+          "neighborhood": "Buritis",
+          "city": "Boa Vista",
+          "state": "Roraima",
+          "number": "20",
+          "complement": "Apto. 03"
+        }
+      ],
+      "phones": [
+        {
+          "id": "51d02380-54ad-4221-878a-35c8c75e0118",
+          "number": "06933255658",
+          "type": "Fax de casa"
+        },
+        {
+          "id": "e278b138-d5c2-403e-b392-ed60e25ad4ef",
+          "number": "018739129861",
+          "type": "Celular"
+        }
+      ]
+    },
+    {
+      "id": "f305c9e0-2d41-49cc-bf7b-814505e7dcc2",
+      "name": "Elmer Casper",
+      "email": "jorge89@hotmail.com",
+      "group": "Trabalho",
+      "addresses": [
+        {
+          "id": "01efcd0d-593f-4d9e-83f4-8c5fb89dc6c3",
+          "type": "Outros",
+          "cep": "68627-433",
+          "street": "Rua Sete de Setembro",
+          "neighborhood": "Laércio Cabeline",
+          "city": "Paragominas",
+          "state": "Pará",
+          "number": "15",
+          "complement": "Bloco 01"
+        },
+        {
+          "id": "2ff96181-2eb7-44d6-b437-7f0faf42bac0",
+          "type": "Principal",
+          "cep": "69309-188",
+          "street": "Avenida dos Imigrantes",
+          "neighborhood": "Buritis",
+          "city": "Boa Vista",
+          "state": "Roraima",
+          "number": "20",
+          "complement": "Apto. 03"
+        }
+      ],
+      "phones": [
+        {
+          "id": "e2249ea8-010c-4d38-bb7b-3fb1af8c3b6b",
+          "number": "06979848194",
+          "type": "Pager"
+        },
+        {
+          "id": "9043ccdf-00e6-4631-bf27-022dc453c440",
+          "number": "082373577173",
+          "type": "Fax de casa"
+        }
+      ]
+    },
+    {
+      "id": "af9e22f7-3434-4e26-862f-12fd2a88182c",
+      "name": "Darrin Gutkowski",
+      "email": "jennie_lang@yahoo.com",
+      "group": "Amigos",
+      "addresses": [
+        {
+          "id": "97228d8b-7f93-405e-a397-068c41628673",
+          "type": "Outros",
+          "cep": "68627-433",
+          "street": "Rua Sete de Setembro",
+          "neighborhood": "Laércio Cabeline",
+          "city": "Paragominas",
+          "state": "Pará",
+          "number": "15",
+          "complement": "Bloco 01"
+        },
+        {
+          "id": "cc012768-bf4d-4009-b796-6125dab5de81",
+          "type": "Trabalho",
+          "cep": "69309-188",
+          "street": "Avenida dos Imigrantes",
+          "neighborhood": "Buritis",
+          "city": "Boa Vista",
+          "state": "Roraima",
+          "number": "20",
+          "complement": "Apto. 03"
+        }
+      ],
+      "phones": [
+        {
+          "id": "dd11cb71-4569-40f2-9f29-fc12a9fc5c59",
+          "number": "06095023425",
+          "type": "Trabalho"
+        },
+        {
+          "id": "1d843e82-dc15-426d-9dbd-c0a32c2794cd",
+          "number": "049720173139",
+          "type": "Celular"
+        }
+      ]
+    },
+    {
+      "id": "cedad83a-2754-43cf-96d6-841eb9016b1c",
+      "name": "Cora Rice",
+      "email": "ronny.reinger@hotmail.com",
+      "group": "Outros",
+      "addresses": [
+        {
+          "id": "7a4bf783-8bd2-4cbf-be42-8c652707ea6e",
+          "type": "Outros",
+          "cep": "68627-433",
+          "street": "Rua Sete de Setembro",
+          "neighborhood": "Laércio Cabeline",
+          "city": "Paragominas",
+          "state": "Pará",
+          "number": "15",
+          "complement": "Bloco 01"
+        },
+        {
+          "id": "c7f5a565-8888-4dd3-af4a-b06e1e647340",
+          "type": "Outros",
+          "cep": "69309-188",
+          "street": "Avenida dos Imigrantes",
+          "neighborhood": "Buritis",
+          "city": "Boa Vista",
+          "state": "Roraima",
+          "number": "20",
+          "complement": "Apto. 03"
+        }
+      ],
+      "phones": [
+        {
+          "id": "ef6f6b40-1f5f-44b8-ade5-a94920ddb440",
+          "number": "01016630494",
+          "type": "Celular"
+        },
+        {
+          "id": "7eb7de55-8b2e-48ca-9353-ba032d7624c6",
+          "number": "016757423286",
+          "type": "Trabalho"
+        }
+      ]
+    },
+    {
+      "id": "9fdb8d74-f492-4794-ac5a-5d8989c6f77e",
+      "name": "Marguerite McClure",
+      "email": "amani69@yahoo.com",
+      "group": "Outros",
+      "addresses": [
+        {
+          "id": "1b165e57-4d1c-4f9f-ab47-096cee99cfe9",
+          "type": "Trabalho",
+          "cep": "68627-433",
+          "street": "Rua Sete de Setembro",
+          "neighborhood": "Laércio Cabeline",
+          "city": "Paragominas",
+          "state": "Pará",
+          "number": "15",
+          "complement": "Bloco 01"
+        },
+        {
+          "id": "80b2dabe-665a-48c7-bb5c-070d3d4fc78b",
+          "type": "Trabalho",
+          "cep": "69309-188",
+          "street": "Avenida dos Imigrantes",
+          "neighborhood": "Buritis",
+          "city": "Boa Vista",
+          "state": "Roraima",
+          "number": "20",
+          "complement": "Apto. 03"
+        }
+      ],
+      "phones": [
+        {
+          "id": "145943d1-48e9-467c-8586-dab98ddabacb",
+          "number": "06053973376",
+          "type": "Fax de casa"
+        },
+        {
+          "id": "3104f46b-6288-4570-b422-d8712020d3ae",
+          "number": "032047492228",
+          "type": "Celular"
+        }
+      ]
+    },
+    {
+      "id": "2ab2f122-812b-46a7-a969-364103b17ef8",
+      "name": "Vicky Weber DDS",
+      "email": "randy.kohler@gmail.com",
+      "group": "Amigos",
+      "addresses": [
+        {
+          "id": "b54bb26a-d05f-4b23-80b3-8c9d8b6a1706",
+          "type": "Outros",
+          "cep": "68627-433",
+          "street": "Rua Sete de Setembro",
+          "neighborhood": "Laércio Cabeline",
+          "city": "Paragominas",
+          "state": "Pará",
+          "number": "15",
+          "complement": "Bloco 01"
+        },
+        {
+          "id": "635c6a18-61e8-4c0e-a0ba-e578fa09ea24",
+          "type": "Outros",
+          "cep": "69309-188",
+          "street": "Avenida dos Imigrantes",
+          "neighborhood": "Buritis",
+          "city": "Boa Vista",
+          "state": "Roraima",
+          "number": "20",
+          "complement": "Apto. 03"
+        }
+      ],
+      "phones": [
+        {
+          "id": "4d9e12a5-2924-4a0f-ba76-d5d83e23aece",
+          "number": "05772066522",
+          "type": "Celular"
+        },
+        {
+          "id": "5a24a541-d54b-453b-99ec-0e0453865226",
+          "number": "078204418591",
+          "type": "Pager"
+        }
+      ]
+    },
+    {
+      "id": "2cb090f8-94c3-4872-ba10-dc1608a9700b",
+      "name": "Holly Torphy",
+      "email": "gillian87@hotmail.com",
+      "group": "Escola",
+      "addresses": [
+        {
+          "id": "e833730c-a4a2-47b7-96b9-8857b8d33f14",
+          "type": "Outros",
+          "cep": "68627-433",
+          "street": "Rua Sete de Setembro",
+          "neighborhood": "Laércio Cabeline",
+          "city": "Paragominas",
+          "state": "Pará",
+          "number": "15",
+          "complement": "Bloco 01"
+        },
+        {
+          "id": "5d41fba1-924d-4b17-83fb-16f8daebb91a",
+          "type": "Outros",
+          "cep": "69309-188",
+          "street": "Avenida dos Imigrantes",
+          "neighborhood": "Buritis",
+          "city": "Boa Vista",
+          "state": "Roraima",
+          "number": "20",
+          "complement": "Apto. 03"
+        }
+      ],
+      "phones": [
+        {
+          "id": "4f10aa51-2335-4504-aff3-38be422344ec",
+          "number": "08700564412",
+          "type": "Fax do trabalho"
+        },
+        {
+          "id": "00195e7b-50a8-45fa-9a79-3ee0f3a6348c",
+          "number": "017228197673",
+          "type": "Celular"
+        }
+      ]
+    },
+    {
+      "id": "08172dad-105a-4d39-ae48-37f1ad7a4594",
+      "name": "Rosemarie VonRueden",
+      "email": "buford.greenfelder23@hotmail.com",
+      "group": "Trabalho",
+      "addresses": [
+        {
+          "id": "0b2f50cf-6dbe-4684-b6ec-1f9ac3dc9007",
+          "type": "Principal",
+          "cep": "68627-433",
+          "street": "Rua Sete de Setembro",
+          "neighborhood": "Laércio Cabeline",
+          "city": "Paragominas",
+          "state": "Pará",
+          "number": "15",
+          "complement": "Bloco 01"
+        },
+        {
+          "id": "d77352f4-2eef-470a-999e-06a5837fc22f",
+          "type": "Outros",
+          "cep": "69309-188",
+          "street": "Avenida dos Imigrantes",
+          "neighborhood": "Buritis",
+          "city": "Boa Vista",
+          "state": "Roraima",
+          "number": "20",
+          "complement": "Apto. 03"
+        }
+      ],
+      "phones": [
+        {
+          "id": "07fdce6b-e4fa-4cb0-bea7-3c0a848e8ccb",
+          "number": "00901156624",
+          "type": "Pager"
+        },
+        {
+          "id": "1a8c1019-8218-4fe6-b376-74589f8d019c",
+          "number": "034609931107",
+          "type": "Trabalho"
+        }
+      ]
+    },
+    {
+      "id": "e65bdd93-4b16-424d-bbba-b3ac2f10150b",
+      "name": "Jackie Kulas",
+      "email": "vicenta63@hotmail.com",
+      "group": "Trabalho",
+      "addresses": [
+        {
+          "id": "177dd376-9906-4d5c-997f-682fe7a41463",
+          "type": "Outros",
+          "cep": "68627-433",
+          "street": "Rua Sete de Setembro",
+          "neighborhood": "Laércio Cabeline",
+          "city": "Paragominas",
+          "state": "Pará",
+          "number": "15",
+          "complement": "Bloco 01"
+        },
+        {
+          "id": "b1ac5887-5604-45b1-bf8d-d40bcfc13046",
+          "type": "Secundário",
+          "cep": "69309-188",
+          "street": "Avenida dos Imigrantes",
+          "neighborhood": "Buritis",
+          "city": "Boa Vista",
+          "state": "Roraima",
+          "number": "20",
+          "complement": "Apto. 03"
+        }
+      ],
+      "phones": [
+        {
+          "id": "1bdec23f-7fb7-49e4-933c-49e9f8d35828",
+          "number": "04397513794",
+          "type": "Celular"
+        },
+        {
+          "id": "d7dcb706-8e03-4de8-aee1-79e428166e3c",
+          "number": "097719717748",
+          "type": "Fax de casa"
+        }
+      ]
+    },
+    {
+      "name": "Teste",
+      "email": "teste@teste.com.br",
+      "group": "Escola",
+      "addresses": [
+        {
+          "id": "2c98eba7-ff8e-4601-8f7d-e0d992f63963",
+          "type": "Principal",
+          "cep": "28625-010",
+          "street": "Avenida Doutor Galdino do Valle Filho",
+          "number": "97",
+          "complement": "101/A   Centro",
+          "neighborhood": "Centro",
+          "city": "Nova Friburgo",
+          "state": "RJ"
+        },
+        {
+          "id": "8f736c9c-937d-43a2-971a-a1a64d27dc98",
+          "type": "Secundário",
+          "cep": "28605-711",
+          "street": "Rua Waldir de Britos",
+          "number": "215",
+          "complement": "",
+          "neighborhood": "Nova Suíça",
+          "city": "Nova Friburgo",
+          "state": "RJ"
+        }
+      ],
+      "phones": [
+        {
+          "id": "3b64d178-c5af-4301-9822-042671436ba3",
+          "type": "Casa",
+          "number": "022998823363"
+        },
+        {
+          "id": "25ea09ba-e5b3-4550-8336-ad887cce8116",
+          "type": "Celular",
+          "number": "022988714717"
+        }
+      ],
+      "id": "12ac51ac-f257-4481-86d7-332bbbf07e7b"
+    },
+    {
+      "id": "7725ff49-0f23-4eec-8189-b66a35272e46",
+      "name": "Teste 2",
+      "email": "teste@teste.com.br",
+      "group": "Outros",
+      "addresses": [
+        {
+          "id": "f5158779-1d62-4856-b9cc-ac13eb31edbe",
+          "type": "Outros",
+          "cep": "28625-010",
+          "street": "Avenida Doutor Galdino do Valle Filho",
+          "number": "97",
+          "complement": "101/A   Centro",
+          "neighborhood": "Centro",
+          "city": "Nova Friburgo",
+          "state": "RJ"
+        }
+      ],
+      "phones": [
+        {
+          "id": "e09c1e8a-e7c9-42f8-b96a-9100ba1e5355",
+          "type": "Celular",
+          "number": "6665546456"
+        }
+      ]
+    }
+  ],
+  "typePhones": [
+    "Celular",
+    "Casa",
+    "Trabalho",
+    "Fax do trabalho",
+    "Fax de casa",
+    "Pager",
+    "Outros"
+  ],
+  "typeAddresses": ["Principal", "Secundário", "Trabalho", "Outros"],
+  "groups": ["Amigos", "Escola", "Trabalho", "Outros"]
+}

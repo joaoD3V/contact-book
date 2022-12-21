@@ -15,6 +15,7 @@ function App() {
         {view === 'initial' && <Initial />}
         {view === 'contact' && contact && <ContactView contact={contact} />}
         {view === 'editing' && contact && <ContactEditing contact={contact} />}
+        {view === 'add' && <ContactEditing />}
       </Main>
     </S.Wrapper>
   );

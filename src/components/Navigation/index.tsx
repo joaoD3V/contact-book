@@ -3,7 +3,7 @@ import { useContact } from '../../contexts/ContactContext';
 import * as S from './styles';
 
 export function Navigation() {
-  const { handleChangeView, view } = useContact();
+  const { handleChangeView, view, contact, handleRemoveContact } = useContact();
 
   return (
     <S.Wrapper isContactView={view === 'contact'}>
@@ -18,7 +18,14 @@ export function Navigation() {
             <span>Editar</span>
           </button>
 
-          <button type="button">
+          <button
+            type="button"
+            title="Excluir contato"
+            onClick={() => {
+              handleRemoveContact(contact.id);
+              handleChangeView('initial');
+            }}
+          >
             <Trash width="42px" height="42px" />
             <span>Excluir</span>
           </button>
@@ -28,7 +35,11 @@ export function Navigation() {
           <button
             type="button"
             title="Cancelar edição"
-            onClick={() => handleChangeView('contact')}
+            onClick={() =>
+              view === 'add'
+                ? handleChangeView('initial')
+                : handleChangeView('contact')
+            }
           >
             <p>Cancelar</p>
           </button>
