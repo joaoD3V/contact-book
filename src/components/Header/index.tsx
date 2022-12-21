@@ -1,5 +1,6 @@
-import { CaretLeft, MagnifyingGlass, Users } from 'phosphor-react';
+import { CaretLeft, MagnifyingGlass } from 'phosphor-react';
 import { useContact } from '../../contexts/ContactContext';
+import { useModal } from '../../contexts/ModalContext';
 import * as S from './styles';
 
 type HeaderProps = {
@@ -8,6 +9,7 @@ type HeaderProps = {
 
 export function Header({ isInitial = true }: HeaderProps) {
   const { handleChangeView, contact } = useContact();
+  const { handleToggleSearchModal } = useModal();
 
   return (
     <S.Header>
@@ -16,12 +18,12 @@ export function Header({ isInitial = true }: HeaderProps) {
           <h3>Contatos</h3>
 
           <div>
-            <button type="button" title="Pesquisar contato">
+            <button
+              type="button"
+              title="Pesquisar contato"
+              onClick={handleToggleSearchModal}
+            >
               <MagnifyingGlass width="28px" height="28px" />
-            </button>
-
-            <button type="button" title="Agrupar por categoria">
-              <Users width="28px" height="28px" />
             </button>
           </div>
         </>

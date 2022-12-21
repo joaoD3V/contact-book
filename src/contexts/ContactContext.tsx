@@ -85,11 +85,10 @@ export function ContactProvider({ children }: ContactProviderProps) {
       setIsLoading(true);
 
       const responseContacts = await api.get<Contact[]>('/contacts');
-      setContactsList(
-        responseContacts.data.sort((a, b) =>
-          a.name > b.name ? 1 : b.name > a.name ? -1 : 0
-        )
+      const sortContacts = responseContacts.data.sort((a, b) =>
+        a.name > b.name ? 1 : b.name > a.name ? -1 : 0
       );
+      setContactsList(sortContacts);
 
       const responseTypePhones = await api.get<string[]>('/typePhones');
       setTypePhones(responseTypePhones.data);

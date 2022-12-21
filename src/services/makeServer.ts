@@ -3,7 +3,7 @@ import { faker } from '@faker-js/faker';
 import { v4 as uuid } from 'uuid';
 import { api } from './api';
 
-export async function makeServer() {
+export async function contactsFactory() {
   const groups = ['Amigos', 'Escola', 'Trabalho', 'Outros'];
 
   const typePhones = [
@@ -64,7 +64,7 @@ export async function makeServer() {
     await api.post('/contacts', contact);
   }
 
-  await api.post('/typePhones', typePhones);
-  await api.post('/typeAddresses', typeAddresses);
-  await api.post('/groups', groups);
+  // await api.post('/typePhones', typePhones);
+  // await api.post('/typeAddresses', typeAddresses);
+  // await api.post('/groups', groups);
 }

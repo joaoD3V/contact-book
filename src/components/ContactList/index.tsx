@@ -1,5 +1,4 @@
-/* eslint-disable react-hooks/exhaustive-deps */
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useContact } from '../../contexts/ContactContext';
 import { Loading } from '../Loading';
 import { Pad } from './Pad';
@@ -10,19 +9,16 @@ export function ContactList() {
 
   const { contactsList, isLoading } = useContact();
 
-  const isLock = useRef(false);
   useEffect(() => {
-    if (!isLock.current && contactsList) {
-      contactsList.forEach((contact) =>
-        setInitialsLetter((prevValues) => {
-          if (!prevValues.includes(contact.name[0])) {
-            return [...prevValues, contact.name[0]];
-          }
+    contactsList.forEach((contact) =>
+      setInitialsLetter((prevValues) => {
+        if (!prevValues.includes(contact.name[0])) {
+          return [...prevValues, contact.name[0]].sort();
+        }
 
-          return [...prevValues];
-        })
-      );
-    }
+        return [...prevValues].sort();
+      })
+    );
   }, [contactsList]);
 
   function handleFilterContacts(category: string) {
@@ -36,11 +32,15 @@ export function ContactList() {
   return (
     <S.Wrapper>
       {initialsLetter.map((initial) => (
-        <Pad
-          key={initial}
-          initalLetter={initial}
-          contacts={handleFilterContacts(initial)}
-        />
+        <>
+          {handleFilterContacts(initial).length > 0 && (
+            <Pad
+              key={initial}
+              initalLetter={initial}
+              contacts={handleFilterContacts(initial)}
+            />
+          )}
+        </>
       ))}
     </S.Wrapper>
   );
